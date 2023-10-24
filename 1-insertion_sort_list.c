@@ -47,13 +47,13 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *first, *sec;
 
-	if (!*list || !(*list)->next)
+	if (!*list || !(*list)->next || list == NULL)
 		return;
 	first = *list;
 	while (first != NULL)
 	{
 		while (first->next && (first->n > first->next->n))
-		{	
+		{
 			sec = first->next;
 			list_swap(first);
 			if (sec->prev)
