@@ -47,7 +47,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *first, *sec;
 
-	if (!*list || !(*list)->next || list == NULL)
+	if (list == NULL || *list == NULL)
 		return;
 	first = *list;
 	while (first != NULL)
