@@ -13,27 +13,14 @@ void list_swap(listint_t *list)
 
 	first = list;
 	second = first->next;
-	if (second->next == NULL)
-	{
-		first->prev->next = second;
-		second->prev = first->prev;
-		first->next = NULL;
-	}
-	else if (first->prev == NULL)
-	{
-		first->next = second->next;
+	second->prev = first->prev;
+	first->next = second->next;
+	if (first->prev)
+		first->prev->next =  second;
+	if (second->next)
 		second->next->prev = first;
-		second->prev = NULL;
-	}
-	else
-	{
-		second->prev = first->prev;
-		first->prev->next = second;
-		first->next = second->next;
-		second->next->prev = first;
-	}
-	second->next = first;
 	first->prev = second;
+	second->next = first;
 }
 
 /**
